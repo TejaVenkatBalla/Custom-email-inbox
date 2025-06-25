@@ -23,7 +23,6 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 # MongoDB connection
-#mongodb://admin:password123@mongodb:27017/email_app?authSource=admin
 #MONGODB_URL = "mongodb://localhost:27017"
 
 MONGODB_URL = "mongodb://admin:password123@localhost:27017/email_app?authSource=admin"
