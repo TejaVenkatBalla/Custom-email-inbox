@@ -44,7 +44,7 @@ app = FastAPI(title="Email Document Listing API")
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React app URL
+    allow_origins=["*"],  # React app URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -131,7 +131,7 @@ def fetch_emails_with_attachments(mail):
     
     emails = []
     # Get last 50 emails for performance
-    for email_id in email_ids[-50:]:
+    for email_id in email_ids[-20:]:
         status, msg_data = mail.fetch(email_id, '(RFC822)')
         email_message = email.message_from_bytes(msg_data[0][1])
         
