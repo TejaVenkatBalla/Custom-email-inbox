@@ -1,4 +1,4 @@
-version: '3.8'
+
 
 services:
   # MongoDB Database
@@ -26,10 +26,6 @@ services:
     restart: unless-stopped
     ports:
       - "8000:8000"
-    environment:
-      - SECRET_KEY=your-super-secret-key-change-in-production
-      - MONGODB_URL=mongodb://admin:password123@mongodb:27017/email_app?authSource=admin
-      - ALLOWED_ORIGINS=http://localhost:3000,http://frontend:3000
     depends_on:
       - mongodb
     volumes:
@@ -45,14 +41,9 @@ services:
     container_name: email_app_frontend
     restart: unless-stopped
     ports:
-      - "3000:3000"
-    environment:
-      - REACT_APP_API_URL=http://localhost:8000
+      - "8080:8080"
     depends_on:
       - backend
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
     networks:
       - email_app_network
 
